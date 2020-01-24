@@ -21,7 +21,7 @@ We expect the applicant to at least implement these three endpoints:
 which would allow:
 
 - listing all the categories
-- navigating into a category and listing the jokes in that category.
+- navigating into a category and showing a random joke in that category.
 - searching through all the jokes using free text search.
 
 ## Technical assumptions
