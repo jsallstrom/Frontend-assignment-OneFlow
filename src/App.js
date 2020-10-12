@@ -4,6 +4,10 @@ import axios from "axios"
 
 
 
+import AppRouter from "../src/routers/AppRouter"
+
+
+
 
 export default function App() {
 
@@ -88,6 +92,32 @@ export default function App() {
   // same button willl generate new random joke BUT from that new category
   // usestate(current category)
   // Searchbar
+
+
+  // I guess using React Router basic??
+
+
+  /**
+   * Use this kind of <Link>
+   * 
+   * <Link to={{
+      pathname: ´/${category}´,
+     state: {
+        category: category
+      }
+    }}>{category}</Link>
+   * 
+   * 
+   * 
+   * AND in CategoryPage.js 
+   * 
+   * const { handle } = props.match.params
+     const { category } = props.location.state
+   * 
+    useEffect() with these 
+   * MAY just works using normal components (not rfc)
+   * 
+   */
   
 
 
@@ -108,8 +138,22 @@ export default function App() {
    */
   
 
+    
 
   return (
+    
+      <AppRouter>
+        
+        
+      </AppRouter>
+      
+    
+  );
+
+/**
+ * 
+ * 
+ * return (
     <div >
       <ul>
             {categories.map((category, index) => {
@@ -143,6 +187,8 @@ export default function App() {
       
     </div>
   );
+ */
+  
 }
 
 
