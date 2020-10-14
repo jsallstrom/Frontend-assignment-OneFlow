@@ -1,28 +1,23 @@
 import React from "react";
 
-import styled from "styled-components";
-
 import { Link } from "react-router-dom";
 
-const StyledNavBar = styled.nav`
+import styled from "styled-components";
+
+const StyledNavBar = styled.ul`
+     list-style: none;
+
      display: flex;
      flex-direction: row;
 
-     margin-bottom: 10px;
      /*This part is to make the Navbar Sticky and on top */
      position: sticky;
      top: 0;
      background: black;
      z-index: 10;
-`;
-
-const NavLinks = styled.ul`
-     list-style: none;
-     /*padding-inline-start: 0;*/
-     display: flex;
      align-items: center;
+
      flex-wrap: wrap;
-     justify-content: center;
 `;
 
 const NavLink = styled(Link)`
@@ -32,9 +27,12 @@ const NavLink = styled(Link)`
      color: black;
      text-decoration: none;
 
+     text-transform: capitalize; // make first letter Capital
+
      transition: 250ms;
 
      padding: 10px 10px;
+
      border: none;
 
      color: white;
@@ -53,16 +51,13 @@ export default function NavBar({ categories }) {
 
      return (
           <StyledNavBar>
-               <NavLinks>
-                    <NavLink to={"/"}>Home</NavLink>
-                    {categories.map((category, index) => {
-                         return (
-                              <NavLink to={`/categories/${category}`} key={index}>
-                                   {category}
-                              </NavLink>
-                         );
-                    })}
-               </NavLinks>
+               {categories.map((category, index) => {
+                    return (
+                         <NavLink to={`/categories/${category}`} key={index}>
+                              {category}
+                         </NavLink>
+                    );
+               })}
           </StyledNavBar>
      );
 }

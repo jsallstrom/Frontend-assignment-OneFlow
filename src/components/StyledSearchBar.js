@@ -7,7 +7,7 @@ import searchIcon from "../svg/search.svg";
 
 const SearchBar = styled.div`
      height: 48px;
-     max-width: 400px;
+     max-width: 500px;
      position: relative;
      margin: 0 5px;
 
@@ -36,7 +36,7 @@ const SearchBar = styled.div`
           top: 50%;
           left: 24px;
           transform: translateY(-50%);
-          z-index: 10;
+          z-index: 9;
           width: 16px;
           height: 16px;
      }
@@ -46,7 +46,7 @@ export default function StyledSearchBar(props) {
      return (
           <SearchBar>
                <img src={searchIcon} alt="search icon" />
-               <input {...props} placeholder="Example Placeholder" type="text" />
+               <input placeholder="Example Placeholder" type="text" {...props} />
           </SearchBar>
      );
 }

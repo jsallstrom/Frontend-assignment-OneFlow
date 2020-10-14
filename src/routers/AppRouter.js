@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import axios from "axios";
 
-import HomePage from "../pages/HomePage";
 import CategoryPage from "../pages/CategoryPage";
 
 import NavBar from "../components/NavBar";
+
+import styled from "styled-components";
+
+const StyledNavTitle = styled.h1`
+     color: black;
+     padding-left: 50px;
+     flex-wrap: wrap;
+`;
 
 export default function AppRouter() {
      const [categories, setCategories] = useState([]);
 
      const fetchCategories = async () => {
           const response = await axios.get("https://api.chucknorris.io/jokes/categories");
-          setCategories(response.data);
+          setCategories(["random", ...response.data]);
      };
 
      useEffect(() => {
@@ -22,10 +29,12 @@ export default function AppRouter() {
 
      return (
           <BrowserRouter>
+               <StyledNavTitle>CHUCK NORRIS FACTS</StyledNavTitle>
                <NavBar categories={categories}></NavBar>
 
                <Switch>
-                    <Route path="/" exact={true} component={HomePage}></Route>
+                    <Redirect exact from="/" to="/categories/random" />
+
                     <Route path="/categories/:category" component={CategoryPage}></Route>
                </Switch>
           </BrowserRouter>
