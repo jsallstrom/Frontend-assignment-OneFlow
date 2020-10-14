@@ -1,19 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import AppRouter from "../src/routers/AppRouter"
-
+import AppRouter from "../src/routers/AppRouter";
 
 export default function App() {
-
-  return (
-    
-      <AppRouter>
-        
-      </AppRouter>
-      
-  );
-
-
+     return <AppRouter></AppRouter>;
 }
-
-
