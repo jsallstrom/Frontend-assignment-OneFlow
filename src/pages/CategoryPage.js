@@ -4,6 +4,8 @@ import axios from "axios";
 
 import StyledSearchBar from "../components/StyledSearchBar";
 
+import Spinner from "../components/Spinner";
+
 import {
      MainContent,
      Row,
@@ -22,6 +24,8 @@ export default function CategoryPage(props) {
 
      const [loading, setLoading] = useState(false);
 
+     const [error, setError] = useState("");
+
      useEffect(() => {
           fetchCategoryJoke();
      }, [category]);
@@ -34,15 +38,18 @@ export default function CategoryPage(props) {
                     const response = await axios.get(
                          `https://api.chucknorris.io/jokes/random?category=${category}`
                     );
-                    //setJoke(response.data.value);
+
                     setJokes([response.data.value]);
+                    setError("");
                } else {
                     const response = await axios.get("https://api.chucknorris.io/jokes/random");
-                    //setJoke(response.data.value);
+
                     setJokes([response.data.value]);
+                    setError("");
                }
           } catch (error) {
                console.log(error);
+               setError(error.message);
           } finally {
                setLoading(false);
           }
@@ -60,8 +67,11 @@ export default function CategoryPage(props) {
                          return item.value;
                     })
                );
+               setError("");
           } catch (error) {
                console.log(error);
+               setError(error.message);
+               setJokes([]);
           } finally {
                setLoading(false);
           }
@@ -76,8 +86,6 @@ export default function CategoryPage(props) {
      };
 
      /*
-   * 
-   
    
      BUGS: 
      - less than 3 character searches seems to give back code 400, think it has to do with
@@ -92,13 +100,17 @@ export default function CategoryPage(props) {
                     Generate {category} facts
                </StyledJokeButton>
 
+               {error && <p>Something went wrong...{error}</p>}
+
                {/*Show error here maybe && error */}
 
-               {loading
-                    ? "loading..."
-                    : jokes.map((joke, index) => {
-                           return <StyledJoke key={index}>{joke}</StyledJoke>;
-                      })}
+               {loading ? (
+                    <Spinner></Spinner>
+               ) : (
+                    jokes.map((joke, index) => {
+                         return <StyledJoke key={index}>{joke}</StyledJoke>;
+                    })
+               )}
 
                <StyledFooter>
                     <form onSubmit={handleSearch}>
