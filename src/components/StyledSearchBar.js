@@ -28,6 +28,10 @@ const SearchBar = styled.div`
           &::placeholder {
                color: grey;
           }
+
+          @media (max-width: 768px) {
+               padding: 0 40px;
+          }
      }
 
      /*Any image inside SearchBar these rules will apply (Nested Css)*/
@@ -39,6 +43,9 @@ const SearchBar = styled.div`
           z-index: 9;
           width: 16px;
           height: 16px;
+          @media (max-width: 768px) {
+               left: 15px;
+          }
      }
 `;
 

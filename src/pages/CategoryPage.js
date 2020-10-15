@@ -11,8 +11,6 @@ const MainContent = styled.div`
      flex-direction: column;
      justify-content: center;
      align-items: center;
-
-     padding: 70px;
 `;
 
 const Row = styled.div`
@@ -49,7 +47,12 @@ const StyledJoke = styled.p`
      padding-top: 30px;
      padding-bottom: 30px;
      text-align: center;
-     padding: 10px 5px;
+     padding: 10px 50px;
+     margin-bottom: 70px;
+
+     @media (max-width: 768px) {
+          font-size: 17px;
+     }
 `;
 
 const StyledJokeButton = styled.button`
@@ -67,6 +70,14 @@ const StyledJokeButton = styled.button`
      font-size: 14px;
      text-decoration: none;
      text-transform: capitalize;
+
+     margin-top: 100px;
+     margin-bottom: 150px;
+
+     @media (max-width: 768px) {
+          margin-top: 0px;
+          margin-bottom: 0px;
+     }
 `;
 
 const StyledFooter = styled.footer`
@@ -150,9 +161,14 @@ export default function CategoryPage(props) {
 
      Maybe get a better Font
 
+     
+     use global.js
+
+     
    
      BUGS: 
-     - less than 3 character searches seems to give back code 400
+     - less than 3 character searches seems to give back code 400, think it has to do with
+      the api
 
 
    */

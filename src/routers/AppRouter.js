@@ -13,6 +13,10 @@ const StyledNavTitle = styled.h1`
      color: black;
      padding-left: 50px;
      flex-wrap: wrap;
+
+     @media (max-width: 768px) {
+          font-size: 20px;
+     }
 `;
 
 export default function AppRouter() {
