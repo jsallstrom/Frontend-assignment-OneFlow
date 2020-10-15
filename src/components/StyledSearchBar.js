@@ -26,7 +26,7 @@ const SearchBar = styled.div`
           border: 1px solid black;
           color: black;
           &::placeholder {
-               color: grey;
+               color: ${colors.grey};
           }
 
           @media (max-width: 768px) {

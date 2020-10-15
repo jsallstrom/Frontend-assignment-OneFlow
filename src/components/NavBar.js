@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { colors } from "../styles/global";
+
 import styled from "styled-components";
 
 const StyledNavBar = styled.ul`
@@ -13,7 +15,7 @@ const StyledNavBar = styled.ul`
      /*This part is to make the Navbar Sticky and on top */
      position: sticky;
      top: 0;
-     background: black;
+     background: ${colors.black};
      z-index: 10;
      align-items: center;
 
@@ -24,7 +26,7 @@ const NavLink = styled(Link)`
      margin-right: 10px;
      cursor: pointer;
 
-     color: black;
+     color: ${colors.black};
      text-decoration: none;
 
      text-transform: capitalize; // make first letter Capital
@@ -35,10 +37,10 @@ const NavLink = styled(Link)`
 
      border: none;
 
-     color: white;
+     color: ${colors.white};
 
      &:hover {
-          color: grey;
+          color: ${colors.grey};
           transform: scale(
                1.05
           ); /*This just makes the nav item slightly bigger to show its hovered over */
